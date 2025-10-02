@@ -1,13 +1,22 @@
-
 import React from "react";
-import './../styles/App.css';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import ItemList from "./ItemList";
+import ItemDetails from "./ItemDetails";
 
 const App = () => {
   return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+    <BrowserRouter>
+      <div>
+        <nav>
+          <Link to="/">Home</Link>
+        </nav>
+        <Switch>
+          <Route exact path="/" component={ItemList} />
+          <Route path="/items/:id" component={ItemDetails} />
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
